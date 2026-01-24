@@ -10,6 +10,7 @@ from fastapi.security import OAuth2PasswordRequestForm, OAuth2PasswordBearer
 from jose import JWTError, jwt
 import secrets
 from fastapi.templating import Jinja2Templates
+import os
 
 
 
@@ -19,8 +20,10 @@ router = APIRouter(
 )
 
 # move secret_key to be stored outside application to an environment variable.
-SECRET_KEY = "This as;ldkf is ;alsdkjf an ;laksdjf unsafe ;lksadjf; key. wao309 change a;lsdf0o29u later 120359usdfa;lk"
-ALGORITHM = "HS256"
+SECRET_KEY = os.environ["SECRET_KEY"]
+ALGORITHM = os.getenv("ALGORITHM", "HS256")
+ACCESS_TOKEN_EXPIRE_MINUTES = int(os.getenv("ACCESS_TOKEN_EXPIRE_MINUTES", 30))
+DATABASE_URL = os.environ["DATABASE_URL"]
 
 bcrypt_context = CryptContext(schemes=['bcrypt'], deprecated='auto')
 oauth2_bearer = OAuth2PasswordBearer(tokenUrl='auth/token')
