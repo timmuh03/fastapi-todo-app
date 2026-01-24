@@ -34,8 +34,8 @@ class CreateUserRequest(BaseModel):
     email: str
     first_name: str
     last_name: str
-    password: str
     role: str
+    password: str
     phone_number: str
 
 class Token(BaseModel):
@@ -93,7 +93,7 @@ def create_user(db: db_dependency, create_user_request: CreateUserRequest):
         username=create_user_request.username,
         first_name=create_user_request.first_name,
         last_name=create_user_request.last_name,
-        role=create_user_request.role,
+        role='user',
         hashed_password=bcrypt_context.hash(create_user_request.password),
         is_active=True,
         phone_number=create_user_request.phone_number
