@@ -2,7 +2,7 @@
 
 This repository contains a full-stack Todo application built with **FastAPI**, **SQLAlchemy**, and a server-rendered frontend. The primary purpose of this project was to develop and demonstrate **systems-level understanding** of backend application behavior, rather than frontend design or UI polish.
 
-Most of the HTML, CSS, and JavaScript assets were reused from existing examples so that the majority of effort could be spent on **backend architecture, request handling, authentication, validation, and testing**.
+**Important** Most of the HTML, CSS, and JavaScript assets were reused from existing examples so that the majority of effort could be spent on **backend architecture, request handling, authentication, validation, and testing**.
 
 ---
 
